@@ -1,0 +1,42 @@
+<view class="ctrl">
+<!-- bind:tap="onComment" -->
+	<view class="ctrl-item" bind:tap="subscribeMsg">
+		<i class="iconfont icon-pinglun icon"></i>
+		<text class="item">评论</text>
+	</view>
+	<view class="ctrl-item share">
+		<view>
+      <!-- 小程序分享功能 规定只能用button 并且open-type="share" -->
+      <button open-type="share" data-blogid="{{blogId}}" data-blog="{{blog}}" class="share-btn"  hover-class="share-hover">
+        <i class="iconfont icon-fenxiang icon"></i>
+        <text class="item">分享</text>
+      </button>
+			
+		</view>
+	</view>
+</view>
+
+<j-login modalShow="{{loginlShow}}" bind:loginsuccess ="onLoginSuccess" bind:loginfail="onLoginFail" />
+
+<!-- <j-bottom-modal modalShow="{{modalShow}}"> -->
+<!-- 模版推送订阅需要用form表单包裹,还必须配置report-submit="true" 还要设置提交按钮form-type-->
+<!--form 已经废弃 消息模版推送里面有个formID 有效期是7天,同时还要在微信管理后台配置消息模版 -->
+  <!-- <form slot="mode-content" report-submit="true" bind:submit="onSend" > -->
+    <!-- <textarea name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true"></textarea> -->
+		<!-- <button class="send" form-type="submit">发送</button> -->
+  <!-- </form> -->
+  <!-- 上面和下面对比，上面是可以使用消息订阅模版所以要用form -->
+  <!-- <view slot="mode-content"> -->
+    <!-- 原生组件除了设置样式外 想固定在某一位置还需要设置fixed="true" -->
+    <!-- <textarea bindinput="onInput" name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true"></textarea> -->
+		<!-- <button class="send" form-type="submit" bind:tap="onSend">发送</button> -->
+  <!-- </view> -->
+<!-- </j-bottom-modal> -->
+
+<j-bottom-modal modalShow="{{modalShow}}">
+  <view slot="mode-content">
+		<textarea bindinput="onInput" name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true"></textarea>
+		<button class="send" form-type="submit" bind:tap="onSend">发送</button>
+	</view>
+</j-bottom-modal>
+

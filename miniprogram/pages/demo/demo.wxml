@@ -1,0 +1,26 @@
+<block wx:key="*this" wx:for="{{arr}}" wx:for-item="data" wx:for-index="idx">
+<view> <checkbox></checkbox>{{data}}---{{idx}}</view>
+</block>
+<button bind:tap = "sort">随机排序</button>
+<!-- wx:key="*this" *this小程序关键字指向当前位置 -->
+
+<!-- 对象 找唯一值即可 -->
+<block wx:key="id" wx:for="{{arrObj}}" wx:for-item="data" wx:for-index="idx">
+<view> <checkbox></checkbox>{{data.name}}---{{idx}}</view>
+</block>
+<button bind:tap = "sortObj">随机排序</button>
+
+<button bind:tap="getMusicInfo">获取音乐信息</button>
+<button bind:tap="getMovieInfo">获取电影信息</button>
+
+<!-- 获取用户信息，在页面中显示信息 -->
+<open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data>
+<open-data type="userCountry"></open-data>
+<open-data type="userCity"></open-data>
+
+<!-- 获取用户弹层授权信息 -->
+<button open-type="getUserInfo"
+ bindgetuserinfo = "onGetUserInfo">获取用户信息</button>
+
+ <button bind:tap="onGetUserInfo1">获取用户信息1</button>

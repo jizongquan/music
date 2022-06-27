@@ -1,0 +1,6 @@
+<j-bottom-modal modalShow="{{modalShow}}">
+  <view slot="mode-content">
+    <!-- button小程序提供了一个开放能力 open-type，提供了一个值叫getUserInfo -->
+    <button class="login" bindtap="onGetUserInfo">微信的授权信息</button>
+  </view>
+</j-bottom-modal>
